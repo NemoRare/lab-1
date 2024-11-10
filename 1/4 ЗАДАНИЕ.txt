@@ -1,0 +1,50 @@
+#include"stdio.h"
+#include "stdafx.h"
+#include "time.h"
+#include "locale.h"
+#include "stdlib.h"
+#define ROWS 2 
+#define COLS 2 
+
+int main(void) {
+	setlocale(LC_ALL,"RUS");
+    int array[ROWS][COLS];
+    int rowSum[ROWS];  
+    int colSum[COLS];  
+    int i, j;
+    for (i = 0; i < ROWS; i++) {
+        rowSum[i] = 0;
+    }
+    for (j = 0; j < COLS; j++) {
+        colSum[j] = 0;
+    }
+
+    printf("¬ведите элементы массива (%d x %d):\n", ROWS, COLS);
+    for (i = 0; i < ROWS; i++) {
+        for (j = 0; j < COLS; j++) {
+            printf("Ёлемент [%d][%d]: ", i, j);
+            scanf_s("%d", &array[i][j]);
+        }
+    }
+
+   
+    for (i = 0; i < ROWS; i++) {
+        for (j = 0; j < COLS; j++) {
+            rowSum[i] += array[i][j]; 
+            colSum[j] += array[i][j];
+        }
+    }
+
+ 
+    printf("\n—уммы по строкам:\n");
+    for (i = 0; i < ROWS; i++) {
+        printf("—умма строки %d: %d\n", i, rowSum[i]);
+    }
+
+    printf("\n—уммы по столбцам:\n");
+    for (j = 0; j < COLS; j++) {
+        printf("—умма столбца %d: %d\n", j, colSum[j]);
+    }
+	system("pause");
+}
+

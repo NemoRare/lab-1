@@ -1,0 +1,36 @@
+#include"stdio.h"
+#include "stdafx.h"
+#include "time.h"
+#include "locale.h"
+#include "stdlib.h"
+int main(void) {
+	setlocale(LC_ALL,"RUS");
+    int n;
+    printf_s("Введите количество элементов в массиве: ");
+    scanf_s("%d", &n);
+
+    if (n <= 0) {
+        printf("Размер массива должен быть положительным.\n");
+        return 1;
+    }
+    int arr[10];
+    printf("Введите элементы массива:\n");
+    for (int i = 0; i < n; i++) {
+        scanf_s("%d", &arr[i]);
+    }
+    int max = arr[0];
+    int min = arr[0];
+
+    for (int i = 1; i < n; i++) {
+        if (arr[i] > max) {
+            max = arr[i];
+        }
+        if (arr[i] < min) {
+            min = arr[i];
+        }
+    }
+    int difference = max - min;
+    printf_s("Разница между максимальным и минимальным элементами: %d\n", difference); 
+	
+	system("pause");
+}
